@@ -1,22 +1,38 @@
 
 
-
-
-
-async function Works() {
-  const travaux = await fetch ("http://localhost:5678/api/works");
-  const JsonTravaux = await travaux.json();
-  
+function getWorks(){
+  fetch("http://localhost:5678/api/works")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+     displayWorks(data)
+      
+    
+  })
+  .catch(error => {console.log(error)})
 }
-Works();
 
+getWorks()
 
-async function getWorks() {
-  const jsWorks = await Works();
-  console.log(jsWorks);
-  
+function displayWorks(work){
+  const getGallery = document.querySelector(".gallery");
 }
-getWorks();
+
+function getCategories(){
+  fetch("http://localhost:5678/api/categories")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    
+      
+    
+  })
+  .catch(error => {console.log(error)})
+}
+
+getCategories()
+
+
 
 
 
