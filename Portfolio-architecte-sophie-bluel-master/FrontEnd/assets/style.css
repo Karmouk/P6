@@ -132,6 +132,31 @@ li:hover {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
+.categories{
+	display:flex;
+	justify-content: center;
+	margin-top: 50px;
+    margin-bottom: 60px;
+	gap: 10px;
+}
+
+.categories button{
+	color:  #1D6154;
+	background-color: white;
+	font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 60px;
+	border: 1px solid #1D6154;
+	font-family: 'Syne';
+	cursor:pointer;
+	padding:10px;
+
+}
+.categories button:active{
+	color: white;
+	background-color: #1D6154;
+}
 
 .gallery img {
 	width: 100%;
