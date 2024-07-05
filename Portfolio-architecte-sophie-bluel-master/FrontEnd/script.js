@@ -35,6 +35,7 @@ function getCategories(){
   .then(response => response.json())
   .then(data => {
     console.log(data)
+    displayCategories(data)
     
       
     
@@ -44,8 +45,41 @@ function getCategories(){
 
 getCategories()
 
+function displayCategories(categories){
+  const categoriecontainer= document.querySelector('.categories ');
+  const categoriestous=document.createElement('button');
+  categoriestous.textContent='Tous';
+  categoriestous.id='0';
+  categoriestous.addEventListener('click', () => {
+    getGallery.innerHTML = '';
+    getWorks();
+  })
+ 
+  categoriecontainer.appendChild(categoriestous)
+  
+  categories.forEach(categories =>{
+    const buttoncategorie = document.createElement('button');
+    buttoncategorie.id=categories.id
+    buttoncategorie.textContent=categories.name;
+    categoriecontainer.appendChild(buttoncategorie)
+    
+  
+
+    
+
+  })
+  
 
 
+  
 
+}
+ function FilterWorks(){
+  
+  const allbuttons=document.querySelectorAll(".categories button")
+  console.log(allbuttons)
+  
 
+}
+FilterWorks()
 
