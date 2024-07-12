@@ -1,11 +1,15 @@
 
 
-function getWorks(){
+function getWorks(categoryId = null){
   fetch("http://localhost:5678/api/works")
   .then(response => response.json())
   .then(data => {
     console.log(data)
-     displayWorks(data)
+    let filteredData = data;
+      if (categoryId) {
+        filteredData = data.filter(work => work.categoryId === categoryId);
+      }
+     displayWorks(filteredData)
       
     
   })
@@ -16,6 +20,7 @@ getWorks()
 
 function displayWorks(work){
   const getGallery = document.querySelector(".gallery");
+  getGallery.innerHTML = ''; 
   work.forEach(work => {
     const figure = document.createElement('figure');
     const img = document.createElement('img');
@@ -46,12 +51,11 @@ function getCategories(){
 getCategories()
 
 function displayCategories(categories){
-  const categoriecontainer= document.querySelector('.categories ');
+  const categoriecontainer= document.querySelector('.categories');
   const categoriestous=document.createElement('button');
   categoriestous.textContent='Tous';
   categoriestous.id='0';
   categoriestous.addEventListener('click', () => {
-    getGallery.innerHTML = '';
     getWorks();
   })
  
@@ -61,25 +65,13 @@ function displayCategories(categories){
     const buttoncategorie = document.createElement('button');
     buttoncategorie.id=categories.id
     buttoncategorie.textContent=categories.name;
+    buttoncategorie.addEventListener('click', () => {
+      getWorks(categories.id); 
+      console.log(categories)
+    });
     categoriecontainer.appendChild(buttoncategorie)
-    
+    })
   
-
-    
-
-  })
-  
-
-
-  
-
 }
- function FilterWorks(){
-  
-  const allbuttons=document.querySelectorAll(".categories button")
-  console.log(allbuttons)
-  
 
-}
-FilterWorks()
 
