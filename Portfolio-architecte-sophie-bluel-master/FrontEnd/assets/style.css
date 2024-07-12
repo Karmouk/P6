@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color:#FFFEF8 ;
 }
 ol, ul {
 	list-style: none;
@@ -194,6 +195,9 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+.mdpreset{
+	color: black;
+}
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -208,6 +212,9 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
+	background-color: white;
+	margin-top: 220px;
+
 }
 
